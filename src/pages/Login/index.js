@@ -3,10 +3,10 @@ import { View, Text, StyleSheet} from 'react-native';
 
 // import { Container } from './styles';
 
-export default function Feed(){
+export default function Login(){
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Pagina Feed</Text>
+      <Text style={styles.text}>Pagina Login</Text>
     </View>
   );
 }
