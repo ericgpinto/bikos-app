@@ -1,26 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet} from 'react-native';
-import Form from '../../components/Form';
+import { View, StyleSheet} from 'react-native';
+import FilterAd from './FilterAd';
+import SearchAd from './SearchAd';
 
-// import { Container } from './styles';
 
 export default function Feed(){
   return (
     <View>
-      <Form>Pagina Feed</Form>
+      <SearchAd></SearchAd>
+      <FilterAd></FilterAd>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center'
-  },
-
-  text:{
-    fontSize: 25,
-    fontWeight:"bold"
-  }
-})
