@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, StyleSheet} from 'react-native';
+import { View} from 'react-native';
+import Text from '../../components/Text';
 import FilterAd from './FilterAd';
 import SearchAd from './SearchAd';
 
@@ -9,6 +10,7 @@ export default function Feed(){
     <View>
       <SearchAd></SearchAd>
       <FilterAd></FilterAd>
+      <Text></Text>
     </View>
   );
 }
