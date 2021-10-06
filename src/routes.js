@@ -19,7 +19,7 @@ const Tab = createBottomTabNavigator();
                tabBarStyle:{
                    paddingBottom:5,
                    paddingTop:5
-               }
+               },
            }}
          >
 
