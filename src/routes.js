@@ -18,8 +18,15 @@ const Tab = createBottomTabNavigator();
                tabBarActiveTintColor:"#000",
                tabBarStyle:{
                    paddingBottom:5,
-                   paddingTop:5
+                   paddingTop:5,
+                   color:"#000"
                },
+               headerStyle:{
+                   backgroundColor:"#22630C",
+                   height:60
+               },
+            
+
            }}
          >
 

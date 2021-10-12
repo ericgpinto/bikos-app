@@ -25,19 +25,19 @@ export default function AdsList(){
         style={styles.adsList}
         keyExtractor={ads => String(ads._id)}
         renderItem={({ item: ads }) => (
-          <View style={styles.ad}>
+          <SafeAreaView style={styles.ad}>
             <Text style={styles.adProperty}>Categoria</Text>
-            <Text style={styles.adValue}>{ads.category}</Text>
-            <Text style={styles.adProperty}>Descrição</Text>
-            <Text style={styles.adValue}>{ads.description}</Text>
+            <Text style={styles.adValue}>{ads.category.name}</Text>
+            <Text style={styles.adProperty}>Localização</Text>
+            <Text style={styles.adValue}>{ads.city}, {ads.state}</Text>
             <TouchableOpacity 
               style={styles.detailsButton} 
               onPress={() => navigateToDetail(incident)}
             >
               <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
-              <Feather name="arrow-right" size={16} color="#F3B948" />            
+              <Feather name="arrow-right" size={16} color="#22630C" />            
             </TouchableOpacity>
-          </View>
+          </SafeAreaView>
         )}
       />
     </View>
