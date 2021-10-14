@@ -20,15 +20,15 @@ const styles = StyleSheet.create({
 
     logoText:{
         fontSize:16,
-        left: 40,
+        left: 30,
         top: 35,
     },
 
     input:{
         backgroundColor:"#FEE2AB",
         height:50,
-        width: 280,
-        borderRadius:20,
+        width: "60%",
+        borderRadius:8,
         left: 32,
     },
 
@@ -40,15 +40,15 @@ const styles = StyleSheet.create({
     },
 
     searchIcon:{
-        left:32
+        
     },
 
     filterButton:{
         backgroundColor:"#FEE2AB",
         left: 50,
         height: 50,
-        width: 60,
-        borderRadius:20,
+        width: 55,
+        borderRadius:8,
         justifyContent: 'center',
         alignItems: 'center',
     }

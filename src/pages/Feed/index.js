@@ -3,9 +3,7 @@ import { FlatList, View} from 'react-native';
 import Text from '../../components/Text';
 import api from '../../services/api';
 import AdsList from './AdsList';
-import FilterAd from './FilterAd';
 import Header from './Header';
-import SearchAd from './SearchAd';
 
 export default function Feed(){
   return (

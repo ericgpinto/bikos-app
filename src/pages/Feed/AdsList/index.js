@@ -3,6 +3,7 @@ import { View, Text, FlatList, TouchableOpacity, SafeAreaView } from 'react-nati
 import api from '../../../services/api';
 import styles from './styles';
 import { Feather } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native';
 
 export default function AdsList(){
 
@@ -11,6 +12,12 @@ export default function AdsList(){
   async function loadAds(){
     const response = await api.get("/ads/feed");
     setAds(response.data)
+  }
+
+  const navigation = useNavigation();
+
+  function navigateToDetail(ads) {
+    navigation.navigate('DetailsAd', { ads });
   }
 
   useEffect(() => {
@@ -32,7 +39,7 @@ export default function AdsList(){
             <Text style={styles.adValue}>{ads.city}, {ads.state}</Text>
             <TouchableOpacity 
               style={styles.detailsButton} 
-              onPress={() => navigateToDetail(incident)}
+              onPress={() => navigateToDetail(ads)}
             >
               <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
               <Feather name="arrow-right" size={16} color="#22630C" />            

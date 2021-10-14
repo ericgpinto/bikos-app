@@ -1,10 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
+import styles from './styles';
 
 // import { Container } from './styles';
 
-const DetailsAd = () => {
-  return <View />;
+export default function DetailsAd(){
+  return(
+    <View style={styles.container}>
+      <Text>OI</Text>
+    </View>
+  )
 }
-
-export default DetailsAd;

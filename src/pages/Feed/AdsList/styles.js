@@ -30,7 +30,7 @@ export default StyleSheet.create({
     borderRadius: 8,
     backgroundColor: '#FFF',
     left:33,
-    width: 340,
+    width: "80%",
     height:215,
     marginBottom: 16,
   },

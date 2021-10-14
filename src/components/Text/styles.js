@@ -11,8 +11,7 @@ const styles = StyleSheet.create({
     textView:{
         width: "100%", 
         left: 33,
-        right:90,
-        top: 30
+        right:90
     }
 
 });

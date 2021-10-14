@@ -23,7 +23,7 @@ const Tab = createBottomTabNavigator();
                },
                headerStyle:{
                    backgroundColor:"#22630C",
-                   height:60
+                   height:70
                },
             
 
