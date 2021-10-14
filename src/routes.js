@@ -21,9 +21,10 @@ const Tab = createBottomTabNavigator();
                    paddingTop:5,
                    color:"#000"
                },
+               
                headerStyle:{
                    backgroundColor:"#22630C",
-                   height:70
+                 
                },
             
 

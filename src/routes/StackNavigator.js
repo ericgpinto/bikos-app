@@ -8,7 +8,11 @@ const Stack = createStackNavigator();
 
 const MainStackNavigator = () => {
     return(
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{
+            headerStyle:{
+                backgroundColor:"#22630C"
+            }
+        }}>
             <Stack.Screen
                 name="Routes"
                 component={Routes}
