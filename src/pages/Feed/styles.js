@@ -7,7 +7,7 @@ export default StyleSheet.create({
     paddingTop: Constants.statusBarHeight + 20,
     
   },
-
+  
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -15,6 +15,8 @@ export default StyleSheet.create({
   },
 
   image:{
+      left:20,
+      top:10,
       width: 65,
       height:46
   },
@@ -32,7 +34,7 @@ export default StyleSheet.create({
 
   filterSection:{
     flexDirection:'row',
-    top:15,
+    top:20,
     height:80
 },
 

@@ -1,30 +1,41 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 import styles from './styles';
 import { Feather, Entypo } from '@expo/vector-icons'
-import Header from '../../components/Header';
-
-// import { Container } from './styles';
+import logoImg from '../../assets/bikos-logo.png'
+import { useRoute } from '@react-navigation/core';
 
 export default function DetailsAd(){
+
+  const route = useRoute();
+  const ads = route.params.ads;
+
   return(
-    <View style={styles.container}>
-      <View>
-        <Header></Header>
+    <View styles={styles.container}>
+      <View style={styles.details}>
+        <Text style={styles.detailsText}>Detalhes do Biko</Text>
+        <Entypo name="location" style={styles.iconStyle} size={20} color="#000" />
+        <Text style={styles.textValue}>{ads.city} - {ads.state}</Text>
+        <Entypo name="publish" style={styles.iconStyle} size={20} color="#000" />
+        <Text style={styles.textValue}>{ads.createdAt}</Text>
+        <Entypo name="user" style={styles.iconStyle} size={20} color="#000" />
+        <Text style={styles.textValue}>{ads.announcer.name}</Text>
       </View>
-      <Text>
-        <Entypo name="location" size={16} color="#000" />
-        <Text> Porto Alegre</Text>
-      </Text>
-      <Text>
-        <Entypo name="publish" size={16} color="#000" />
-        <Text> Porto Alegre</Text>
-      </Text>
-      <Text>
-        <Entypo name="user" size={16} color="#000" />
-        <Text> Porto Alegre</Text>
-      </Text>
-      
+      <View style={styles.description}>
+          <Text style={styles.descriptionText}>Descrição</Text>
+          <Text style={styles.text}>
+          {ads.description}
+          </Text>
+          <Text style={styles.actionArea}>{ads.category.actionArea.name}</Text>
+          <Text style={styles.categoryName}>{ads.category.name}</Text>
+          <Text style={styles.candidatesInformation}>
+            6 prestadores já se candidataram.
+          </Text>
+        </View>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.apply}>Aplicar-se</Text>
+          </TouchableOpacity>
     </View>
+    
   )
 }

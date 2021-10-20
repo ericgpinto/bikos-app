@@ -28,10 +28,8 @@ export default function AdsList(){
 
   return (
     <View styles={styles.container}>
-       <View style={styles.container}>
-            <View style={styles.header}>
-                <Image source={logoImg} style={styles.image}/>
-            </View>
+        <View style={styles.header}>
+            <Image source={logoImg} style={styles.image}/>
         </View>
         <View style={styles.filterSection}>
                   <TextInput 
