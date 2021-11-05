@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
       },
 
       categoryName:{
-        top:20,
+        top:17,
         flexDirection:'row',
         fontSize: 15,
         left: 80,

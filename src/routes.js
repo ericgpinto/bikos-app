@@ -4,7 +4,7 @@ import Ads from './pages/Ads';
 import Favorites from './pages/Favorites';
 import Feed from './pages/Feed';
 import Login from './pages/Login/styles';
-import { Entypo, Feather } from '@expo/vector-icons'
+import { Entypo, Feather, FontAwesome } from '@expo/vector-icons'
 
 const Tab = createBottomTabNavigator();
 
@@ -47,7 +47,7 @@ const Tab = createBottomTabNavigator();
              component={Favorites}
              options={{
                 tabBarIcon:({size, color}) => (
-                   <Entypo name="heart" size={size} color={color} />
+                   <FontAwesome name="heart" size={size} color={color} />
                 )
             }}
              />
