@@ -10,6 +10,10 @@ export default function DetailsAd(){
   const route = useRoute();
   const ads = route.params.ads;
 
+  function applyToBiko(){
+    
+  }
+
   return(
     <View styles={styles.container}>
       <View style={styles.details}>

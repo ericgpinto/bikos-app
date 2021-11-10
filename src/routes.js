@@ -3,8 +3,8 @@ import React from 'react';
 import Ads from './pages/Ads';
 import Favorites from './pages/Favorites';
 import Feed from './pages/Feed';
-import Login from './pages/Login/styles';
 import { Entypo, Feather, FontAwesome } from '@expo/vector-icons'
+import Login from './pages/Login';
 
 const Tab = createBottomTabNavigator();
 

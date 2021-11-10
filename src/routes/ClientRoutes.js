@@ -1,10 +1,11 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import Ads from './pages/Ads';
-import Favorites from './pages/Favorites';
-import Feed from './pages/Feed';
-import Login from './pages/Login/styles';
+
+import Feed from '../pages/Feed';
+import Login from '../pages/Login';
 import { Entypo, Feather, MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons'
+import Ads from '../pages/Ads';
+import Favorites from '../pages/Favorites';
 
 const Tab = createBottomTabNavigator();
 
