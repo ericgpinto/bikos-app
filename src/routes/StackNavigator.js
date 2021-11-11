@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import DetailsAd from "../pages/DetailsAd";
-import Routes from "../routes";
+import ProviderRoutes from "../routes/ProviderRoutes";
 import Main from "../pages/Main";
 import ClientRoutes from "./ClientRoutes";
 
@@ -19,7 +19,7 @@ const MainStackNavigator = () => {
             
             <Stack.Screen
                 name="Routes"
-                component={Routes}
+                component={ProviderRoutes}
                 options={{ headerShown: false }}
             />
 

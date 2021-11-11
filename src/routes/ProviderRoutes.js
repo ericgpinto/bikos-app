@@ -3,12 +3,14 @@ import React from 'react';
 import Ads from '../pages/Ads';
 import Favorites from '../pages/Favorites';
 import Feed from '../pages/Feed';
-import { Entypo, Feather, FontAwesome } from '@expo/vector-icons'
+import { Entypo, Feather, FontAwesome, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
 import Login from '../pages/Login';
+import Notifications from '../pages/Notifications';
+import Informations from '../pages/Informations';
 
 const Tab = createBottomTabNavigator();
 
- export default function Routes() {
+ export default function ProviderRoutes() {
      return(
          <Tab.Navigator
            screenOptions={{
@@ -36,7 +38,7 @@ const Tab = createBottomTabNavigator();
              component={Feed}
              options={{
                  tabBarIcon:({size, color}) => (
-                    <Feather name="search" size={size} color={color} />
+                    <MaterialCommunityIcons name="briefcase-search" size={20} color={color} />
                  )
              }}
 
@@ -47,27 +49,37 @@ const Tab = createBottomTabNavigator();
              component={Favorites}
              options={{
                 tabBarIcon:({size, color}) => (
-                   <FontAwesome name="heart" size={size} color={color} />
+                   <FontAwesome name="heart" size={20} color={color} />
                 )
             }}
              />
 
              <Tab.Screen 
-             name="Serviços" 
-             component={Ads}
+             name="Informações" 
+             component={Informations}
              options={{
                 tabBarIcon:({size, color}) => (
-                   <Entypo name="briefcase" size={size} color={color} />
+                   <FontAwesome name="history" size={20} color={color} />
+                )
+            }}
+             />
+
+            <Tab.Screen 
+             name="Notificações" 
+             component={Notifications}
+             options={{
+                tabBarIcon:({size, color}) => (
+                   <Ionicons name="notifications" size={20} color={color} />
                 )
             }}
              />
 
              <Tab.Screen 
-             name="Entrar" 
+             name="Perfil" 
              component={Login}
              options={{
                 tabBarIcon:({size, color}) => (
-                   <Entypo name="login" size={size} color={color} />
+                   <Entypo name="user" size={20} color={color} />
                 )
             }}
              />
