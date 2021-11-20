@@ -1,25 +1,30 @@
 import React from 'react';
-import { View, Text, StyleSheet} from 'react-native';
-
-// import { Container } from './styles';
+import { View, Text, StyleSheet, TouchableOpacity, Modal} from 'react-native';
+import { Modalize } from 'react-native-modalize';
 
 export default function Ads(){
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Pagina Ads</Text>
-    </View>
-  );
+
+  return(
+   <View style={styles.container}>
+     <TouchableOpacity>
+       <Text style={{fontSize:25}}>OI</Text>
+     </TouchableOpacity>
+   </View>
+  )
+
 }
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center'
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
 
-  text:{
-    fontSize: 25,
-    fontWeight:"bold"
+  button:{
+    alignItems:'center',
+    justifyContent:'center',
+    padding:15,
+    borderRadius:7
   }
 })

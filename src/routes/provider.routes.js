@@ -55,7 +55,7 @@ const Tab = createBottomTabNavigator();
              />
 
              <Tab.Screen 
-             name="Informações" 
+             name="Informations" 
              component={Informations}
              options={{
                 tabBarIcon:({size, color}) => (
@@ -83,6 +83,8 @@ const Tab = createBottomTabNavigator();
                 )
             }}
              />
+
+
 
          </Tab.Navigator>
      )

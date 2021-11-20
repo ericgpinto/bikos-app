@@ -1,9 +1,10 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import DetailsAd from "../pages/DetailsAd";
-import ProviderRoutes from "../routes/ProviderRoutes";
+import ProviderRoutes from "./provider.routes";
+import ClientRoutes from "./client.routes"
 import Main from "../pages/Main";
-import ClientRoutes from "./ClientRoutes";
+import Informations from "../pages/Informations";
 
 
 const Stack = createStackNavigator();
@@ -28,7 +29,7 @@ const MainStackNavigator = () => {
                 component={ClientRoutes}
                 options={{ headerShown: false }}
             />
-
+            
             <Stack.Screen name="DetailsAd" component={DetailsAd}/>
 
             

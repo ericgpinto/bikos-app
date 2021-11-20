@@ -1,17 +1,18 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import React from 'react';
+import React, {useContext} from 'react';
 
 import Feed from '../pages/Feed';
-import Login from '../pages/Login';
 import { Entypo, Feather, MaterialCommunityIcons, FontAwesome, Ionicons } from '@expo/vector-icons'
 import Ads from '../pages/Ads';
 import Favorites from '../pages/Favorites';
 import Notifications from '../pages/Notifications';
 import SearchProviders from '../pages/SearchProviders';
+import Profile from '../pages/Profile';
 
 const Tab = createBottomTabNavigator();
 
 export default function ClientRoutes() {
+
     return(
         <Tab.Navigator
           screenOptions={{
@@ -76,7 +77,7 @@ export default function ClientRoutes() {
 
             <Tab.Screen 
             name="Perfil" 
-            component={Login}
+            component={Profile}
             options={{
                tabBarIcon:({size, color}) => (
                   <Entypo name="user" size={20} color={color} />

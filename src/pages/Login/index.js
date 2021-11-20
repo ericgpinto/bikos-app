@@ -1,22 +1,18 @@
-import React from 'react';
+import React, {useContext, useRef, useState} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, Image} from 'react-native';
 import styles from './styles';
 import logoImg from '../../assets/bikos-logo.png'
-import { useState } from 'react/cjs/react.development';
-import api from '../../services/api';
+import AuthContext from '../../contexts/auth';
 
 export default function Login(){
 
   const [email, setEmail] = useState()
-  const [password, setPassoword] = useState()
+  const [password, setPassoword] = useState() 
+
+  const { signed, signIn } = useContext(AuthContext)
 
   async function handleSignIn() {
-    const response = await api.post("/login",{
-      email,
-      password
-    });
-
-    console.log(response.data)
+    signIn(email, password)
   }
 
   return (
@@ -41,19 +37,22 @@ export default function Login(){
         onChangeText={setEmail}
         value={email}
         />
-        <TextInput 
+        <TextInput
+        secureTextEntry={true} 
         style={styles.input} 
         placeholder="Senha"
         placeholderTextColor="#000"
         onChangeText={setPassoword}
         value={password}
         />
+         
         <TouchableOpacity 
         style={styles.localLoginButton}
         onPress={handleSignIn}
         >
           <Text style={styles.textButton}>Entrar</Text>
         </TouchableOpacity>
+        
       </View>
       <View style={styles.newAccount}>
         <Text style={styles.textMessage}>Não possui conta?</Text>
