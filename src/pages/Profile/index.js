@@ -5,7 +5,7 @@ import styles from './styles';
 
 export default function Profile(){
 
-    const { signOut } = useContext(AuthContext)
+    const { signOut, user } = useContext(AuthContext)
 
     function handleSignOut(){
       signOut();
@@ -15,6 +15,7 @@ export default function Profile(){
         <View style={styles.container}>
           <TouchableOpacity onPress={handleSignOut}>
             <Text>Sign Out</Text>
+            <Text>{user.name}</Text>
           </TouchableOpacity>
         </View>
        )

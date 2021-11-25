@@ -1,17 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import styles from './styles';
 import { Feather, Entypo } from '@expo/vector-icons'
 import logoImg from '../../assets/bikos-logo.png'
 import { useRoute } from '@react-navigation/core';
+import api from '../../services/api';
+import AuthContext from '../../contexts/auth';
 
 export default function DetailsAd(){
 
   const route = useRoute();
   const ads = route.params.ads;
 
-  function applyToBiko(){
+  const { user, token } = useContext(AuthContext)
+
+  async function applyToBiko(ads){
     
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    };
+
+    console.log(ads._id)
+    console.log(user._id)
+    console.log(token)
+   
+    console.log(api.baseURL)
+
+    const body = {}
+    const response = await api.post(`/candidates/ads/${ads._id}/apply/${user._id}`, body, {
+      headers:{
+        authorization: `Bearer ${token}`
+      }
+    })
+
+    console.log(response)
   }
 
   return(
@@ -36,7 +58,10 @@ export default function DetailsAd(){
             6 prestadores já se candidataram.
           </Text>
         </View>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity 
+        onPress={() => applyToBiko(ads)}
+        style={styles.button}
+        >
           <Text style={styles.apply}>Aplicar-se</Text>
           </TouchableOpacity>
     </View>

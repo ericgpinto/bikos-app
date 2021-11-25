@@ -7,6 +7,7 @@ const AuthContext = createContext({ signed: true});
 export const AuthProvider = ({ children }) => { 
 
     const [user, setUser] = useState(null);
+    const [token, setToken] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -15,8 +16,11 @@ export const AuthProvider = ({ children }) => {
             const storagedToken = await AsyncStorage.getItem('@RNAuth:token');
 
             if(storagedUser && storagedToken){
-                api.defaults.headers['Authorization'] == `Bearer ${storagedToken}`;
+                // api.defaults.headers['Authorization'] == `Bearer ${storagedToken}`;
+                setToken(storagedToken)
+                // console.log(storagedToken)
                 setUser(JSON.parse(storagedUser))
+                console.log(user)
                 setLoading(false)
             }
         }
@@ -27,11 +31,12 @@ export const AuthProvider = ({ children }) => {
         const response = await api.post('/login',{
             email, password
         })
-        console.log(response.data)
+        // console.log(response.data)
 
         setUser(response.data.user)
 
-        api.defaults.headers['Authorization'] == `Bearer ${response.data.token}`;
+        // api.defaults.headers['Authorization'] == `Bearer ${response.data.token}`;
+        setToken(response.data.token)
 
         await AsyncStorage.setItem('@RNAuth:user', JSON.stringify(response.data.user));
         await AsyncStorage.setItem('@RNAuth:token', response.data.token);
@@ -44,7 +49,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     return(
-        <AuthContext.Provider value={{ signed: !!user, user, loading, signIn, signOut }}>
+        <AuthContext.Provider value={{ signed: !!user, user, token, loading, signIn, signOut }}>
             {children}
         </AuthContext.Provider>
     )
