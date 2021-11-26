@@ -1,30 +1,25 @@
 import React, { useContext } from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Image, Text, TouchableOpacity, View } from 'react-native';
 import styles from './styles';
 import { Feather, Entypo } from '@expo/vector-icons'
 import logoImg from '../../assets/bikos-logo.png'
-import { useRoute } from '@react-navigation/core';
+import { useNavigation, useRoute } from '@react-navigation/core';
 import api from '../../services/api';
 import AuthContext from '../../contexts/auth';
 
 export default function DetailsAd(){
-
+  const navigation = useNavigation();
   const route = useRoute();
+
   const ads = route.params.ads;
 
   const { user, token } = useContext(AuthContext)
 
-  async function applyToBiko(ads){
-    
-    const config = {
-      headers: { Authorization: `Bearer ${token}` }
-    };
+  function navigateBack() {
+    navigation.goBack()
+  }
 
-    console.log(ads._id)
-    console.log(user._id)
-    console.log(token)
-   
-    console.log(api.baseURL)
+  async function applyToBiko(ads){
 
     const body = {}
     const response = await api.post(`/candidates/ads/${ads._id}/apply/${user._id}`, body, {
@@ -33,7 +28,16 @@ export default function DetailsAd(){
       }
     })
 
-    console.log(response)
+    showAlert()
+  }
+
+  function showAlert(){
+    Alert.alert(
+      "Aviso",
+      "Candidatura realizada com sucesso!"
+    )
+
+    navigateBack()
   }
 
   return(
