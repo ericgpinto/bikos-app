@@ -1,18 +1,18 @@
 import React, { useContext, useRef, useState } from 'react';
-import { View, Text, TouchableOpacity} from 'react-native';
+import { View, Text, TouchableOpacity, Linking} from 'react-native';
 import { Modalize } from 'react-native-modalize';
 import styles from './styles';
 import api from '../../services/api';
 import { FlatList } from 'react-native-gesture-handler';
 import { useEffect } from 'react/cjs/react.development';
 import AuthContext from '../../contexts/auth';
-import { Ionicons, Feather } from '@expo/vector-icons'; 
+import { Ionicons, Feather, FontAwesome } from '@expo/vector-icons'; 
 
 export default function Ads(){
   
   const { user, token } = useContext(AuthContext)
   const [data, setData] = useState([])
-  const [applicants, setApplicants] = useState([])
+  const [dado, setDado] = useState([])
   
   const modalizeRef = useRef(null)
 
@@ -32,18 +32,36 @@ export default function Ads(){
   async function onOpen(ads){
     modalizeRef.current?.open();
 
-    const res = await api.get(`/candidates/ads/${ads._id}`, {
+    const res = await api.get(`/ads/${ads._id}/candidates`, {
       headers: { "Authorization":`Bearer ${token}`}
     })
-    setApplicants(res.data);
-    
+    setDado(res.data);
   }
 
-  const renderItem = ({ item }) => (
-    <View style={styles.item}>
-      <Text style={styles.item__name}>{item.provider.name}</Text>
-    </View>
-  );
+  function sendWhatsapp(element){
+    console.log(element)
+    Linking.openURL(`whatsapp://send?phone=${element.user.phone}`)
+  }
+
+  const renderItem = ( {item}) => {
+    return item.applicants.map((element) => {
+      return (
+        <View key={element._id} style={styles.item}>
+          <View style={styles.item1}>
+            <Text style={styles.item__name}>{element.user.phone}</Text>
+            <TouchableOpacity onPress={()=> sendWhatsapp(element)}>
+              <FontAwesome name="whatsapp" size={24} color="black"/>
+            </TouchableOpacity>
+          </View>
+          <View>
+          <TouchableOpacity style={styles.chooseButton}>
+            <Text style={styles.text}>Escolher Prestador</Text>
+          </TouchableOpacity>
+          </View>
+        </View>
+      );
+    });
+  };
 
   return(
    <View style={styles.container}>
@@ -80,7 +98,7 @@ export default function Ads(){
           snapPoint={350}
           modalHeight={400}
           flatListProps={{
-            data: applicants,
+            data: dado,
             renderItem: renderItem,
             keyExtractor: item => String(item._id)
           }} 

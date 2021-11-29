@@ -22,7 +22,7 @@ export default function DetailsAd(){
   async function applyToBiko(ads){
 
     const body = {}
-    const response = await api.post(`/candidates/ads/${ads._id}/apply/${user._id}`, body, {
+    const response = await api.post(`/ads/${ads._id}/candidates/${user._id}/apply`, body, {
       headers:{
         authorization: `Bearer ${token}`
       }

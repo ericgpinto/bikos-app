@@ -64,23 +64,36 @@ const styles = StyleSheet.create({
     },
 
     item:{
-      alignItems: 'flex-start',
-      padding: 15,
+      padding:15,
       borderBottomColor: '#f9f9f9',
       borderBottomWidth: 1,
     },
 
+    item1:{
+      flexDirection:'row',
+      justifyContent:'space-around',
+    },
+
     item__name: {
+      right:40,
       fontSize: 16,
-  
-      marginBottom: 5,
+
     },
-  
-    item__email: {
-      fontSize: 14,
-      fontWeight: '200',
-      color: '#666',
+
+    chooseButton:{
+      marginTop:10,
+      backgroundColor:"#22630C",
+      alignItems:'center',
+      justifyContent:'center',
+      width:180,
+      height:25,
+      borderRadius:5,
     },
+
+    text:{
+      fontSize:15,
+      color:"#FFFFFF"
+    }
    
   })
 

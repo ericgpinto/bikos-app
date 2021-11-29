@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity, SafeAreaView, TextInput, Image } from 'react-native';
 import api from '../../services/api';
 import styles from './styles';
 import { Feather } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native';
 import logoImg from '../../assets/bikos-logo.png'
+import AuthContext from '../../contexts/auth';
 
 export default function AdsList(){
 
   const [ads, setAds] = useState([])
 
+  const { user } = useContext(AuthContext)
+  
   async function loadAds(){
-    const response = await api.get("/ads/feed");
+
+    const response = await api.get("/ads/feed")
+
     setAds(response.data)
   }
 
